@@ -2,18 +2,29 @@
 authors = [{name = "fecet", email = "xiezej@gmail.com"}]
 dependencies = []
 name = "nvidia-shim"
-requires-python = ">= 3.11"
+requires-python = ">= 3.10"
 version = "0.1.0"
 
 [build-system]
 build-backend = "hatchling.build"
 requires = ["hatchling"]
 
+[tool.hatch.build.targets.wheel]
+# 这里列出“要进入 wheel 顶层”的包目录（包含 __init__.py 的目录）
+packages = [
+  "src/nvidia_shim/nvidia",
+  "src/nvidia_shim/flash_attn_3",
+]
+
 [tool.pixi.workspace]
 channels = ["https://repo.prefix.dev/meta-forge", "conda-forge"]
 platforms = ["linux-64"]
 
 [tool.pixi.pypi-dependencies]
-nvidia_shim = { path = ".", editable = true }
+nvidia-shim = { path = ".", editable = false }
 
 [tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+jupyterlab = "*"
+pip = "*"
