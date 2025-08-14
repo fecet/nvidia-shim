@@ -1,7 +1,9 @@
 [project]
 authors = [{name = "fecet", email = "xiezej@gmail.com"}]
 dependencies = []
+description = "A compatibility layer for handling NVIDIA package differences between PyPI and Conda distributions"
 name = "nvidia-shim"
+readme = "README.md"
 requires-python = ">= 3.10"
 version = "0.1.0"
 
@@ -10,7 +12,6 @@ build-backend = "hatchling.build"
 requires = ["hatchling"]
 
 [tool.hatch.build.targets.wheel]
-# 这里列出“要进入 wheel 顶层”的包目录（包含 __init__.py 的目录）
 packages = [
   "src/nvidia_shim/nvidia",
   "src/nvidia_shim/flash_attn_3",
